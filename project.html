@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VolleyMetrics</title>
+ 
+  <script src="project.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>VolleyMetrics</h1>
+    <p>Volleyball Player Statistics and Rankings</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="add-player-heading">
+      <h2 id="add-player-heading">Add a Player</h2>
+      <p>Enter successful plays and total attempts. Leave both blank when a skill was not recorded.</p>
+
+      <form id="playerForm">
+        <p>
+          <label for="playerName">Player Name</label>
+          <input id="playerName" name="playerName" type="text" required>
+        </p>
+
+        <p>
+          <label for="position">Position</label>
+          <select id="position" name="position">
+            <option value="outside">Outside Hitter</option>
+            <option value="setter">Setter</option>
+            <option value="libero">Libero</option>
+          </select>
+        </p>
+
+        <fieldset>
+          <legend>Match Statistics</legend>
+          <p>Counts must be whole numbers, and successful plays cannot exceed attempts.</p>
+          <p>
+            <label for="serveMade">Successful Serves</label>
+            <input id="serveMade" data-skill="serve" data-count="made" type="number" min="0" step="1">
+            <label for="serveTotal">Serve Attempts</label>
+            <input id="serveTotal" data-skill="serve" data-count="attempts" type="number" min="0" step="1">
+          </p>
+          <p>
+            <label for="passMade">Successful Passes</label>
+            <input id="passMade" data-skill="pass" data-count="made" type="number" min="0" step="1">
+            <label for="passTotal">Pass Attempts</label>
+            <input id="passTotal" data-skill="pass" data-count="attempts" type="number" min="0" step="1">
+          </p>
+          <p>
+            <label for="attackMade">Successful Attacks</label>
+            <input id="attackMade" data-skill="attack" data-count="made" type="number" min="0" step="1">
+            <label for="attackTotal">Attack Attempts</label>
+            <input id="attackTotal" data-skill="attack" data-count="attempts" type="number" min="0" step="1">
+          </p>
+          <p>
+            <label for="blockMade">Successful Blocks</label>
+            <input id="blockMade" data-skill="block" data-count="made" type="number" min="0" step="1">
+            <label for="blockTotal">Block Attempts</label>
+            <input id="blockTotal" data-skill="block" data-count="attempts" type="number" min="0" step="1">
+          </p>
+          <p>
+            <label for="defenseMade">Successful Digs</label>
+            <input id="defenseMade" data-skill="defense" data-count="made" type="number" min="0" step="1">
+            <label for="defenseTotal">Dig Opportunities</label>
+            <input id="defenseTotal" data-skill="defense" data-count="attempts" type="number" min="0" step="1">
+          </p>
+          <p>
+            <label for="setMade">Successful Sets</label>
+            <input id="setMade" data-skill="set" data-count="made" type="number" min="0" step="1">
+            <label for="setTotal">Set Attempts</label>
+            <input id="setTotal" data-skill="set" data-count="attempts" type="number" min="0" step="1">
+          </p>
+        </fieldset>
+
+        <button type="submit">Add Player</button>
+      </form>
+      <p id="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section aria-labelledby="ratings-heading">
+      <h2 id="ratings-heading">Player Ratings</h2>
+      <p>Unrecorded skills show N/A. A rating is provisional until all weighted skills for that position have attempts.</p>
+      <div id="playerRatings"></div>
+      <h2>Position Leaderboards</h2>
+      <div id="leaderboards"></div>
+    </section>
+  </main>
+</body>
+</html>
